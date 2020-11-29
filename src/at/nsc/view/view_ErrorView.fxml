@@ -37,7 +37,7 @@
          <image>
             <Image url="@../icon_error.png" />
          </image></ImageView>
-      <Label fx:id="label_ErrorMessage" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" text="Schließen" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <Button mnemonicParsing="false" onAction="#action_close" text="Schließen" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <Label text="An error occurred" GridPane.columnIndex="3" GridPane.rowIndex="4" />
    </children>
 </GridPane>

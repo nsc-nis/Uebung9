@@ -51,6 +51,8 @@ public class controller_WelcomeController implements Initializable {
         }
         catch (Exception exception)
         {
+            //controller_ErrorController.show("Internal error", 0);
+            controller_ErrorController.show("Internal error");
             System.err.println("Something wrong with view_welcomeView.fxml: " + exception.getMessage());
             exception.printStackTrace(System.err);
         }
@@ -76,6 +78,7 @@ public class controller_WelcomeController implements Initializable {
     @FXML
     private void login()
     {
+        boolean loginSuccessful = false;
         String user = textField_UserField.getText();
         String password = passwordField_PasswordField.getText();
 
@@ -83,13 +86,24 @@ public class controller_WelcomeController implements Initializable {
         {
             String loginData_user = list_Logins.get(i).getUsername();
             String loginData_password = list_Logins.get(i).getPassword();
-            if (loginData_user == user && loginData_password == password)
+
+            if (loginData_user.equals(user) && loginData_password.equals(password))
             {
                 controller_MainController.show(new Stage(), "Login successful");
+                loginSuccessful = true;
                 stage.close();
                 break;
             }
         }
+        if (!loginSuccessful)
+        {
+            controller_ErrorController.show("Wrong username/password");
+        }
+    }
 
+    @FXML
+    private void register()
+    {
+        
     }
 }
