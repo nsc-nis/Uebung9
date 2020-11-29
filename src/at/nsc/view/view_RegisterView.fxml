@@ -11,13 +11,15 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="279.0" prefWidth="412.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.nsc.controller.controller_WelcomeController">
+<GridPane alignment="center" hgap="10" prefHeight="279.0" prefWidth="412.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.nsc.controller.controller_RegisterController">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
@@ -36,13 +38,15 @@
          </GridPane.margin>
       </TextField>
       <PasswordField fx:id="passwordField_PasswordField" minWidth="50.0" prefHeight="32.0" prefWidth="185.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="115.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Button mnemonicParsing="false" onAction="#action_createAccount" prefHeight="58.0" prefWidth="115.0" text="Create Account" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+      <Button mnemonicParsing="false" onAction="#action_cancel" prefHeight="58.0" prefWidth="115.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <Button mnemonicParsing="false" onAction="#action_createAccount" prefHeight="58.0" prefWidth="115.0" text="Create Account" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
       <Label text="Create new Account" GridPane.columnIndex="1">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
       <ImageView fitHeight="80.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
+      <PasswordField fx:id="passwordField_PasswordFieldR" promptText="Repeat password" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Label fx:id="label_Success" GridPane.columnIndex="1" GridPane.rowIndex="7" />
    </children>
 </GridPane>

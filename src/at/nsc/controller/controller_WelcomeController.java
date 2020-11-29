@@ -76,7 +76,7 @@ public class controller_WelcomeController implements Initializable {
     }
 
     @FXML
-    private void login()
+    private void action_login()
     {
         boolean loginSuccessful = false;
         String user = textField_UserField.getText();
@@ -102,8 +102,8 @@ public class controller_WelcomeController implements Initializable {
     }
 
     @FXML
-    private void register()
+    private void action_register()
     {
-        
+        controller_RegisterController.show();
     }
 }

@@ -1,15 +1,16 @@
 package at.nsc.controller;
 
+import at.nsc.model.model_LoginData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,22 +27,23 @@ public class controller_RegisterController implements Initializable
     @FXML
     private PasswordField passwordField_PasswordField;
 
+    @FXML
+    private PasswordField passwordField_PasswordFieldR;
+
+    private static Stage stage = new Stage();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
 
     }
 
-    public static void show(Stage stage)
+    public static void show()
     {
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader(controller_WelcomeController.class.getResource("/at/nsc/view/view_RegisterView.fxml"));
             Parent root = fxmlLoader.load();
-
-            //get controller which is connected to this fxml file
-            controller_WelcomeController ctrl = fxmlLoader.getController();
-            stage = stage;
 
             stage.setTitle("Register to Magic 8 Ball");
             stage.setScene(new Scene(root, 400, 400));
@@ -49,7 +51,7 @@ public class controller_RegisterController implements Initializable
         }
         catch (Exception exception)
         {
-            System.err.println("Something wrong with view_RegisterView.fxml: " + exception.getMessage());
+            controller_ErrorController.show("Internal error");
             exception.printStackTrace(System.err);
         }
     }
@@ -57,6 +59,34 @@ public class controller_RegisterController implements Initializable
     @FXML
     private void action_createAccount()
     {
+        try
+        {
+            String user = textField_UserField.getText();
+            String password1 = passwordField_PasswordField.getText();
+            String password2 = passwordField_PasswordFieldR.getText();
 
+            if (password1.equals(password2))
+            {
+                controller_WelcomeController controller_welcomeController = new controller_WelcomeController();
+
+                controller_welcomeController.setList_Logins(new model_LoginData(user, password1));
+
+                stage.close();
+            }
+            else
+            {
+                controller_ErrorController.show("Passwords don't match");
+            }
+        }
+        catch (Exception exception)
+        {
+            controller_ErrorController.show("Internal error");
+        }
+    }
+
+    @FXML
+    private void action_cancel()
+    {
+        stage.close();
     }
 }
