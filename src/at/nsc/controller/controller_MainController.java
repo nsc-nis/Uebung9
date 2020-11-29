@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -35,6 +36,7 @@ public class controller_MainController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(controller_MainController.class.getResource("/at/nsc/view/view_mainView.fxml"));
             Parent root = fxmlLoader.load();
 
+            stage.getIcons().add(new Image("/at/nsc/logo.png"));
             stage.setTitle("Magic 8 Ball");
             stage.setScene(new Scene(root));
             stage.show();

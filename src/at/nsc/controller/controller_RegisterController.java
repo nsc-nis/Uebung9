@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -45,8 +46,9 @@ public class controller_RegisterController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(controller_WelcomeController.class.getResource("/at/nsc/view/view_RegisterView.fxml"));
             Parent root = fxmlLoader.load();
 
+            stage.getIcons().add(new Image("/at/nsc/icon_userAdd.png"));
             stage.setTitle("Register to Magic 8 Ball");
-            stage.setScene(new Scene(root, 400, 400));
+            stage.setScene(new Scene(root));
             stage.show();
         }
         catch (Exception exception)

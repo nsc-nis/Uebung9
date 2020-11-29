@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import at.nsc.model.*;
 import java.net.URL;
@@ -45,13 +46,13 @@ public class controller_WelcomeController implements Initializable {
             controller_WelcomeController ctrl = fxmlLoader.getController();
             ctrl.stage = stage;
 
+            stage.getIcons().add(new Image("/at/nsc/icon_user.png"));
             stage.setTitle("Welcome");
-            stage.setScene(new Scene(root, 400, 400));
+            stage.setScene(new Scene(root));
             stage.show();
         }
         catch (Exception exception)
         {
-            //controller_ErrorController.show("Internal error", 0);
             controller_ErrorController.show("Internal error");
             System.err.println("Something wrong with view_welcomeView.fxml: " + exception.getMessage());
             exception.printStackTrace(System.err);

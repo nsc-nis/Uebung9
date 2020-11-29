@@ -5,46 +5,30 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="373.0" prefWidth="305.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.nsc.controller.controller_WelcomeController">
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="322.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.nsc.controller.controller_MainController">
    <children>
-      <TextField fx:id="textField_UserField" minWidth="50.0" prefHeight="29.0" prefWidth="291.0" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <TextField fx:id="textField_UserField" layoutX="41.0" layoutY="217.0" minWidth="50.0" prefHeight="29.0" prefWidth="243.0" promptText="Username">
          <padding>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </padding>
-         <GridPane.margin>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </GridPane.margin>
       </TextField>
-      <PasswordField fx:id="passwordField_PasswordField" minWidth="50.0" prefHeight="32.0" prefWidth="185.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Button mnemonicParsing="false" onAction="#action_login" prefHeight="58.0" prefWidth="115.0" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-      <Button mnemonicParsing="false" onAction="#action_register" prefHeight="58.0" prefWidth="115.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-      <Label text="Welcome to Magic 8 Ball" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <PasswordField fx:id="passwordField_PasswordField" layoutX="40.0" layoutY="269.0" minWidth="50.0" prefHeight="32.0" prefWidth="243.0" promptText="Password" />
+      <Button layoutX="22.0" layoutY="328.0" mnemonicParsing="false" onAction="#action_login" prefHeight="58.0" prefWidth="115.0" text="Login" />
+      <Button layoutX="186.0" layoutY="328.0" mnemonicParsing="false" onAction="#action_register" prefHeight="58.0" prefWidth="115.0" text="Register" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="92.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon_user.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="186.0" text="Welcome to Magic 8 Ball">
          <font>
             <Font name="Ubuntu" size="24.0" />
          </font>
       </Label>
    </children>
-</GridPane>
+</AnchorPane>
