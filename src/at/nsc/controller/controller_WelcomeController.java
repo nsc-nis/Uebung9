@@ -22,12 +22,6 @@ import java.util.ResourceBundle;
 public class controller_WelcomeController implements Initializable {
 
     private Stage stage;
-    private ArrayList<model_LoginData> list_Logins = new ArrayList<model_LoginData>();
-
-    public void setList_Logins(model_LoginData loginData)
-    {
-        list_Logins.add(loginData);
-    }
 
     @FXML
     private TextField textField_UserField;
@@ -63,7 +57,8 @@ public class controller_WelcomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        list_Logins.add(new model_LoginData("admin", "admin"));
+        //list_Logins.add(new model_LoginData("admin", "admin"));
+        model_loginDataList.setList_Logins(new model_LoginData("admin", "admin"));
     }
 
     @FXML
@@ -73,10 +68,10 @@ public class controller_WelcomeController implements Initializable {
         String user = textField_UserField.getText();
         String password = passwordField_PasswordField.getText();
 
-        for (int i = 0; i < list_Logins.size(); i++)
+        for (int i = 0; i < model_loginDataList.getLength(); i++)
         {
-            String loginData_user = list_Logins.get(i).getUsername();
-            String loginData_password = list_Logins.get(i).getPassword();
+            String loginData_user = model_loginDataList.getList_Logins(i).getUsername();
+            String loginData_password = model_loginDataList.getList_Logins(i).getPassword();
 
             if (loginData_user.equals(user) && loginData_password.equals(password))
             {

@@ -1,6 +1,7 @@
 package at.nsc.controller;
 
 import at.nsc.model.model_LoginData;
+import at.nsc.model.model_loginDataList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -71,7 +72,7 @@ public class controller_RegisterController implements Initializable
             {
                 controller_WelcomeController controller_welcomeController = new controller_WelcomeController();
 
-                controller_welcomeController.setList_Logins(new model_LoginData(user, password1));
+                model_loginDataList.setList_Logins(new model_LoginData(user, password1));
 
                 stage.close();
             }
