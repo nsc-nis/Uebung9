@@ -66,16 +66,6 @@ public class controller_WelcomeController implements Initializable {
     }
 
     @FXML
-    private void next()
-    {
-        //navigate from welcome screen to main screen
-        System.out.println("Navigation started ...");
-
-        controller_MainController.show(new Stage(), "Hello from Welcome Controller!");
-        stage.close();
-    }
-
-    @FXML
     private void action_login()
     {
         boolean loginSuccessful = false;
@@ -89,7 +79,7 @@ public class controller_WelcomeController implements Initializable {
 
             if (loginData_user.equals(user) && loginData_password.equals(password))
             {
-                controller_MainController.show(new Stage(), "Login successful");
+                controller_MainController.show();
                 loginSuccessful = true;
                 stage.close();
                 break;

@@ -1,9 +1,13 @@
 package at.nsc.controller;
 
+import at.nsc.model.model_8ballData;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -16,38 +20,51 @@ import java.util.ResourceBundle;
  */
 public class controller_MainController implements Initializable {
 
-    private String myData = "";
+    private static Stage stage = new Stage();
 
-    public static void show(Stage stage, String greeting)
+    @FXML
+    private Label label_answer;
+
+    @FXML
+    private TextField textField_question;
+
+    public static void show()
     {
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader(controller_MainController.class.getResource("/at/nsc/view/view_mainView.fxml"));
             Parent root = fxmlLoader.load();
 
-            //send data to MainController
-            controller_MainController ctrl = fxmlLoader.getController();
-            ctrl.setMyData(greeting);
-
-            stage.setTitle("Main");
-            stage.setScene(new Scene(root, 500, 500));
+            stage.setTitle("Magic 8 Ball");
+            stage.setScene(new Scene(root));
             stage.show();
 
         }
         catch(Exception exception)
         {
+            controller_ErrorController.show("Internal error");
             System.err.println("Something wrong with view_mainView.fxml: " + exception.getMessage());
             exception.printStackTrace(System.err);
         }
     }
 
-    public void setMyData(String myData) {
-        this.myData = myData;
-        System.out.println("(MainController) Data received: " + this.myData);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    private void action_submit()
+    {
+        at.nsc.model.model_8ballData answer = new model_8ballData();
+        textField_question.clear();
+        label_answer.setText(answer.getAnswer());
+    }
 
+    @FXML
+    private void action_exit()
+    {
+        stage.close();
     }
 }
